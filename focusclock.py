@@ -1,13 +1,13 @@
 import time
 
-def pomodoro_timer(minutes):
-    seconds = minutes * 60
-    while seconds:
-        mins, secs = divmod(seconds, 60)
+def countdown(t):
+    while t:
+        mins, secs = divmod(t, 60)
         timer = '{:02d}:{:02d}'.format(mins, secs)
-        print(timer, end='\r')
+        print(timer, end="\r")
         time.sleep(1)
-        seconds -= 1
-    print('Time is up!')
+        t -= 1
+    print('专注时间结束！')
 
-pomodoro_timer(25)  # 专注时钟的时间为 25 分钟
+t = input("输入专注时间，单位为分钟： ")
+countdown(int(t)*60)
